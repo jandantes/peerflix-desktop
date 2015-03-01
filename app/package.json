@@ -1,0 +1,35 @@
+{
+  "name": "peerflix-desktop",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Desktop wrapper for PeerFlix",
+  "main": "splash.html",
+  "author": "Jan Dantes",
+  "window": {
+    "title": "PeerFlix Desktop",
+    "toolbar": false,
+    "frame": true,
+    "width": 800,
+    "height": 400,
+    "resizable": false
+  },
+  "dependencies": {
+    "airplay-js": "^0.2.5",
+    "clivas": "^0.1.4",
+    "inquirer": "^0.8.0",
+    "keypress": "^0.2.1",
+    "mime": "^1.2.11",
+    "network-address": "0.0.5",
+    "numeral": "^1.5.3",
+    "open": "0.0.5",
+    "optimist": "^0.6.1",
+    "peerflix": "^0.28.0",
+    "pump": "^0.3.1",
+    "range-parser": "^1.0.0",
+    "rc": "^0.4.0",
+    "read-torrent": "^1.1.0",
+    "torrent-stream": "^0.16.2",
+    "windows-no-runnable": "~0.0.6",
+    "xtend": "^4.0.0"
+  }
+}
