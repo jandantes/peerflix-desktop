@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="assets/css/default.css">
+    <script>
+    'use strict';
+    var gui = require('nw.gui');
+    gui.App.clearCache();
+    var nwWin = gui.Window;
+
+    var appWin = nwWin.open('index.html', {
+        title: 'PeerFlix Desktop',
+        show: false,
+        toolbar: false,
+        frame: true,
+        icon: 'app/images/icon/png/32x32/network.png',
+        width: 800,
+        min_height: 400,
+        resizable: false,
+        position: 'center'
+    });
+
+    appWin.on('loaded', function() {
+        appWin.show();
+        appWin.focus();
+        appWin.setAlwaysOnTop(true);
+        appWin.setAlwaysOnTop(false);
+
+        nwWin.get().hide();
+    });
+
+    appWin.on('close', function() {
+        console.log('CLOSE');
+        gui.App.quit();
+    });
+    </script>
+</head>
+
+<body>
+    <div id="bowlG">
+        <div id="bowl_ringG">
+            <div class="ball_holderG">
+                <div class="ballG">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

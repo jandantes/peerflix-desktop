@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" ng-app="PeerFlixDesktop">
+
+<head>
+    <link rel="stylesheet" href="assets/bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+</head>
+
+<body ng-cloak>
+    <div ng-controller="AppCtrl" class="content">
+        <div layout="column" layout-margin layout-padding>
+            <md-card class="white-background">
+                <md-card-content>
+                    <md-input-container>
+                        <label>Enter torrent or magnet link</label>
+                        <input ng-model="link" placeholder="http://..torrent or magnet:" ng-disabled="opt.serverstarted">
+                    </md-input-container>
+                    <div layout="row">
+                        <div flex="90">
+                            <div ng-hide="opt.nowplaying">
+                                <md-button class="md-raised md-primary" ng-disabled="!link" ng-disabled="opt.serverstarted" ng-click="startStream()">Start</md-button>
+                            </div>
+                            <div ng-hide="!opt.nowplaying">
+                                <md-button class="md-raised md-warn" ng-click="stopStream()">Stop</md-button>
+                            </div>
+                        </div>
+                        <div flex="10">
+                            <div ng-show="opt.isloading">
+                                <md-progress-circular md-mode="indeterminate" layout="start end"></md-progress-circular>
+                            </div>
+                        </div>
+                    </div>
+
+                </md-card-content>
+            </md-card>
+        </div>
+        <div layout="column" layout-margin layout-padding ng-hide="!opt.nowplaying">
+            <div>
+                <md-card class="white-background">
+                    <md-card-content>
+                        <div layout="row">
+                            <div flex="25">
+                                <div>Now streaming at:</div>
+                            </div>
+                            <div flex="75">
+                                <strong>{{url}}</strong>
+                            </div>
+                        </div>
+                        <div layout="row">
+                            <div flex="25">
+                                <div>Filename:</div>
+                            </div>
+                            <div flex="75">
+                                <div class="wrap">
+                                    <strong>{{filename}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div layout="row">
+                            <div flex="25">
+                                <div>Size:</div>
+                            </div>
+                            <div flex="75">
+                                <strong>{{filelength | bytes: 'MB'}}</strong>
+                            </div>
+                        </div>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </div>
+        <div layout="column" layout-margin layout-padding ng-hide="!opt.error">
+            <div>
+                <md-card class="error-background">
+                    <md-card-content>
+                        <div layout="row">
+                            <div flex="100">
+                                <strong>{{errorMessage}}</strong>
+                            </div>
+                        </div>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bower_components/angular/angular.min.js"></script>
+    <script src="assets/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="assets/bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="assets/bower_components/angular-material/angular-material.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

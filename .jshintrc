@@ -1,0 +1,12 @@
+{
+    "browser": true,
+    "esnext": true,
+    "globals": {},
+    "globalstrict": true,
+    "quotmark": true,
+    "undef": true,
+    "unused": true,
+    "eqeqeq": true,
+    "node": true,
+    "predef": ["angular", "define"]
+}
